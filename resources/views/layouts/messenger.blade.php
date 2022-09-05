@@ -14,7 +14,7 @@
 
 @yield('content')
 
-<style type="text/css">
+<style>
     body{
         background-color: #f4f7f6;
         margin-top:20px;
@@ -276,7 +276,35 @@
 
 
 
-<script type="text/javascript">
+<script>
+    let usersList = document.querySelectorAll('.user-tab');
+    let usersChat = document.querySelectorAll('.user-chat');
+    let chats = document.querySelector('.chats');
+
+
+    usersChat.forEach(item => {
+        item.style.display = 'none';
+    });
+
+    usersChat[0].style.display = 'block';
+
+    usersList.forEach((item, index) => {
+
+        usersList[0].classList.add('active');
+
+        item.classList.remove('active');
+
+        item.addEventListener('click', function() {
+
+            usersList.forEach(item => item.classList.remove('active'));
+
+            item.classList.add('active');
+
+            usersChat.forEach(item => item.style.display = 'none');
+
+            usersChat[index].style.display = 'block';
+        });
+    });
 
 </script>
 </body>
