@@ -18,8 +18,11 @@
 @include('admin/includes/sidebar')
 
 <main>
-    @yield('content')
+    <section>
+        @yield('content')
+    </section>
 </main>
+
 <footer class="page-footer">
     <div class="footer-copyright">
         <div class="container">

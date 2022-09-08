@@ -14,7 +14,14 @@ Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+
     route::get('/', 'IndexController')->name('admin.index');
+
+    Route::group(['namespace' => 'Users', 'prefix' => 'users'], function() {
+        Route::get('/', 'IndexController')->name('admin.users.index');
+
+    });
+
 });
 
 
