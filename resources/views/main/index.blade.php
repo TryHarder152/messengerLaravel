@@ -1,6 +1,29 @@
 @extends('layouts/'.$template)
 
 @section('content')
+
+        <!-- Modal -->
+        <div class="modal fade" id="fileUpload" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="fileUpload">Загрузить файл</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                    <div class="input__wrapper">
+                      <input type="file" name="file" id="input__file" class="input input__file">
+                      <label for="input__file">Выберите файл</label>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <div class="container">
         <div class="row clearfix">
             <div class="col-lg-12">
@@ -71,10 +94,24 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 hidden-sm text-right">
-                                        <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+                                       
+                                        <a href="javascript:void(0);" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fileUpload">
+                                            <i class="fa fa-image"></i>
+                                        </a>
+                                        
+                                      
+                                        <a href="javascript:void(0);" class="btn btn-outline-info" href="#" data-bs-toggle="dropdown">
+                                            <i class="fa fa-cogs"></i>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="btn btn-outline-warning">
+                                            <i class="fa fa-question"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

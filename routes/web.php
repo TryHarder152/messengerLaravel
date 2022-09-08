@@ -14,7 +14,10 @@ Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
-    route::get('/', 'IndexController')->name('admin.index');
+    Route::get('/', 'IndexController')->name('admin.index');
+    Route::get('/login', 'LoginController')->name('admin.login');
+    Route::post('/request', 'LoginRequestController');
+    Route::get('/logout', 'LogoutController');
 });
 
 
