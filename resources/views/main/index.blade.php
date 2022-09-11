@@ -10,16 +10,22 @@
                 <h5 class="modal-title" id="fileUpload">Загрузить файл</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                    <div class="input__wrapper">
-                      <input type="file" name="file" id="input__file" class="input input__file">
-                      <label for="input__file">Выберите файл</label>
+                <form method="post" action="{{ route('main.upload')}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                            
+                        <div class="input__wrapper">
+                            <input type="file" name="input__file" id="input__file" class="input input__file">
+                            <label for="input__file" name='ok'>Выберите файл</label>
+                        </div>
+                          
+                            
                     </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" >Understood</button>
+                    </div>  
+                </form>
             </div>
           </div>
         </div>
@@ -136,6 +142,11 @@
                                         </div>
                                         <div class="message my-message">Project has been already finished and I have results to show you.</div>
                                     </li>
+                                    @if(isset($path))
+                                    <li class="clearfix">
+                                        <div class="message my-message"><img src="{{ asset('/storage/' . $path)}}"></div>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">
