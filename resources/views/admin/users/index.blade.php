@@ -13,7 +13,9 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th>TFA Active?</th>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +24,16 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->password }}</td>
-                        <td><i class="text-green material-icons">check</i></td>
+                        <td><a href="{{ route('admin.users.show', $user->id) }}" class="green-text"><i class="material-icons material-symbols-outlined pointer">open_in_new</i></a></td>
+                        <td><a href="{{ route('admin.users.edit', $user->id) }}" class="blue-text"><i class="material-icons material-symbols-outlined pointer">edit</i></a></td>
+                        <td>
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="red-white bg-red btn" type="submit"><i class="material-icons material-symbols-outlined pointer">delete</i></button>
+                            </form>
+                        </td>
+
                     </tr>
                 @endforeach
         </tbody>

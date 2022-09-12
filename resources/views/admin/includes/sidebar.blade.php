@@ -29,9 +29,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="{{ route('admin.users.index') }}">Users list</a></li>
-                        <li><a href="#">Create user</a></li>
-                        <li><a href="#">Delete user</a></li>
-                        <li><a href="#">Edit user</a></li>
+                        <li><a href="{{ route('admin.users.create') }}">Create user</a></li>
                     </ul>
                 </div>
             </li>

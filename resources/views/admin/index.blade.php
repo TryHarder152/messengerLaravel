@@ -5,7 +5,7 @@
         <a href="#" data-activates="slide-out" class="button-collapse valign hide-on-large-only">
             <i class="material-icons">menu</i>
         </a>
-        <h1 class="page-announce-text valign">// Users</h1>
+        <h1 class="page-announce-text valign">// Dashboard</h1>
     </div>
     <!-- Stat Boxes -->
     <div class="row">

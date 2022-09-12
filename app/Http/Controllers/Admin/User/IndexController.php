@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Users;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
-class IndexController extends Controller {
+class IndexController extends BaseController {
     public function __invoke() {
-
         $template = 'admin';
 
         $users = User::all();
