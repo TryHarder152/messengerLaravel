@@ -225,6 +225,11 @@
         clear: both;
         height: 0
     }
+    .message img{
+        display: block;
+        height: 200px;
+        width: 200px;
+    }
 
     @media only screen and (max-width: 767px) {
         .chat-app .people-list {

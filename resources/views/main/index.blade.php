@@ -8,7 +8,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="fileUpload">Загрузить файл</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
               </div>
                 <form method="post" action="{{ route('main.upload')}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -16,7 +16,7 @@
                             
                         <div class="input__wrapper">
                             <input type="file" name="input__file" id="input__file" class="input input__file">
-                            <label for="input__file" name='ok'>Выберите файл</label>
+                            
                         </div>
                           
                             
@@ -34,6 +34,7 @@
         <div class="row clearfix">
             <div class="col-lg-12">
                 <div class="card chat-app">
+                    
                     <div id="plist" class="people-list">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -87,6 +88,7 @@
                         </ul>
                     </div>
                     <div class="chats">
+
                         <div class="chat user-chat">
                             <div class="chat-header clearfix">
                                 <div class="row">
@@ -101,27 +103,29 @@
                                     </div>
                                     <div class="col-lg-6 hidden-sm text-right">
                                        
-                                        <a href="javascript:void(0);" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fileUpload">
+                                        <a href="javascript:void(0);" class="btn " data-bs-toggle="modal" data-bs-target="#fileUpload">
                                             <i class="fa fa-image"></i>
                                         </a>
-                                        
-                                      
-                                        <a href="javascript:void(0);" class="btn btn-outline-info" href="#" data-bs-toggle="dropdown">
+                                       
+                                        <a href="javascript:void(0);" class="btn" href="#" data-bs-toggle="dropdown">
                                             <i class="fa fa-cogs"></i>
                                             <ul class="dropdown-menu">
+                                                 
                                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                                             </ul>
                                         </a>
-
-                                        <a href="javascript:void(0);" class="btn btn-outline-warning">
-                                            <i class="fa fa-question"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="chat-history">
+                                @if(session('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Ошибка!</strong> {{ session('error') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
                                 <ul class="m-b-0">
                                     <li class="clearfix">
                                         <div class="message-data text-right">
