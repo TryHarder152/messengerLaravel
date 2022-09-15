@@ -148,7 +148,11 @@
                                     </li>
                                     @if(isset($path))
                                     <li class="clearfix">
-                                        <div class="message my-message"><img src="{{ asset('/storage/' . $path)}}"></div>
+                                        <div class="message my-message">
+                                            <img src="{{ asset('/storage/' . $path)}}">
+                                            <a href="{{ asset('/storage/' . $path)}}">link to file</a>
+                                           
+                                        </div>
                                     </li>
                                     @endif
                                 </ul>
