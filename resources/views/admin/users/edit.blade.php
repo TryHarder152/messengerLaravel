@@ -49,15 +49,31 @@
                     <input name="password" id="password" type="password" class="validate">
                     <label for="password">Password</label>
                     @error('name')
-                    <p class="red-text">{{ $message }}</p>
+                        <p class="red-text">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="input-field col s6">
                     <input name="password_confirm" id="password_confirm" type="password" class="validate">
                     <label for="password_confirm">Password confirm</label>
                     @error('password_confirm')
-                    <p class="red-text">{{ $message }}</p>
+                        <p class="red-text">{{ $message }}</p>
                     @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select name="role" class="browser-default">
+                        <option value="none" disabled>Choose role</option>
+                        @foreach($roles as $id => $role)
+                            <option value="{{ $id }}"
+                                {{ $id == $user->role ? 'selected' : '' }}
+                            >{{ $role }}</option>
+                        @endforeach
+
+                        @error('role')
+                        <p class="red-text">{{ $message }}</p>
+                        @enderror
+                    </select>
                 </div>
             </div>
             <div class="row">

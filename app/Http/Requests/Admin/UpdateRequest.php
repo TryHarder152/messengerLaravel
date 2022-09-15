@@ -28,7 +28,8 @@ class UpdateRequest extends FormRequest
             "name" => "required|min:2|max:30",
             "last_name" => "required|min:2|max:30",
             "email" => "required|min:5|max:50|email:rfc,dns",
-            "password" => "required|min:8|max:50"
+            "password" => "required|min:8|max:50",
+            'role' => 'required|integer'
         ];
     }
 
@@ -50,6 +51,8 @@ class UpdateRequest extends FormRequest
             "password.required" => "the field must be filled in",
             "password.min" => "this field must contain more than eight characters",
             "password.max" => "this field should contain no more than fifty characters",
+            "role.required" => "the field must be filled in",
+            "role.integer" => "choose a role"
         ];
     }
 }

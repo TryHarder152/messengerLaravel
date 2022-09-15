@@ -60,6 +60,19 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s6">
+                    <select name="role" class="browser-default">
+                        <option value="none" disabled selected>Choose role</option>
+                        @foreach($roles as $id => $role)
+                            <option value="{{ $id }}">{{ $role }}</option>
+                        @endforeach
+                    </select>
+                    @error('role')
+                    <p class="red-text">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
                 <button type="submit" class="waves-effect waves-light btn">Create</button>
             </div>
         </form>
