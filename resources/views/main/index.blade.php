@@ -106,7 +106,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-send"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter text here...">
+                                    <input type="text" class="sendInput form-control" placeholder="Enter text here...">
                                 </div>
                             </div>
                         </div>

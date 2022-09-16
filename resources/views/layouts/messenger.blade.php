@@ -310,6 +310,22 @@
         });
     });
 
+    $(function() {
+        let ip_address = '127.0.0.1';
+        let socket_port = '3000';
+        let socket = io(ip_address + ':' + socket_port);
+
+        let chatInput = document.querySelector('.sendInput');
+
+        chatInput.addEventListener('keypress', (event) => {
+            let enter = 13;
+            if(event.charCode === enter) {
+                //let message = this
+                console.log(message);
+            }
+        });
+    });
+
 </script>
 </body>
 </html>
