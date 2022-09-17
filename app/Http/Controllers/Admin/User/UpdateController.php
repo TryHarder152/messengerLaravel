@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\Admin\UpdateRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class UpdateController extends BaseController {
 

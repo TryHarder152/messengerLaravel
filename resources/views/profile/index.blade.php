@@ -50,6 +50,12 @@
                         <a href="#" class="btn btn-primary edit-profile">
                             <i class="fa fa-pencil-square fa-lg"></i> Edit profile
                         </a>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" href="" class="btn btn-primary logout">
+                                <i class="fa fa-pencil-square fa-lg"></i> logout
+                            </button>
+                        </form>
                     </div>
 
                     <div class="row profile-user-info">
