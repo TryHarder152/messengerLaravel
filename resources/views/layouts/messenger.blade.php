@@ -275,6 +275,10 @@
 
 
 
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous">
+</script>
 
 <script>
     let usersList = document.querySelectorAll('.user-tab');
@@ -303,6 +307,22 @@
             usersChat.forEach(item => item.style.display = 'none');
 
             usersChat[index].style.display = 'block';
+        });
+    });
+
+    $(function() {
+        let ip_address = '127.0.0.1';
+        let socket_port = '3000';
+        let socket = io(ip_address + ':' + socket_port);
+
+        let chatInput = document.querySelector('.sendInput');
+
+        chatInput.addEventListener('keypress', (event) => {
+            let enter = 13;
+            if(event.charCode === enter) {
+                //let message = this
+                console.log(message);
+            }
         });
     });
 
