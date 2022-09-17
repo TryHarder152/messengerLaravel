@@ -6,55 +6,37 @@
             <div class="col-lg-12">
                 <div class="card chat-app">
                     <div id="plist" class="people-list">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </div>
+                        <a href="{{url('/profile')}}">
+                           <div class="profile">
+                                <ul class="list-unstyled chat-list ">
+                                    <li class="clearfix ">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                        <div class="about">
+                                            <h6>Profile</h6>
+                                            <div class="name">{{ $userAuth->name}}</div>
+                                            
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> 
+                        </a>
+                        
+                        
                         <ul class="list-unstyled chat-list mt-2 mb-0">
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Aiden Chavez</div>
-                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                </div>
-                            </li>
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Vincent Porter</div>
-                                    <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
-                                </div>
-                            </li>
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Mike Thomas</div>
-                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                </div>
-                            </li>
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Christian Kelly</div>
-                                    <div class="status"> <i class="fa fa-circle offline"></i> left 10 hours ago </div>
-                                </div>
-                            </li>
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Monica Ward</div>
-                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                </div>
-                            </li>
-                            <li class="clearfix user-tab">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                <div class="about">
-                                    <div class="name">Dean Henry</div>
-                                    <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
-                                </div>
-                            </li>
+                            @foreach($users as $user)
+                            <a href="{{url('/', $user->id )}}">
+                                <li class="clearfix user-tab">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">{{$user->name . "". $user->last_name}}</div>
+                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                    </div>
+                                </li>
+                            </a>
+                               
+                            @endforeach
+                            
+                            
                         </ul>
                     </div>
                     <div class="chats">
@@ -66,7 +48,7 @@
                                             <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
                                         </a>
                                         <div class="chat-about">
-                                            <h6 class="m-b-0">Aiden Chavez</h6>
+                                            <h6 class="m-b-0">{{$userChat->name . "" . $userChat->last_name}}</h6>
                                             <small>Last seen: 2 hours ago</small>
                                         </div>
                                     </div>

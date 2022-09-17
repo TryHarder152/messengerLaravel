@@ -225,6 +225,14 @@
         clear: both;
         height: 0
     }
+    .profile{
+        background-color: #007bff;
+        color: #fff;
+    }
+    .profile:hover{
+        background: #fff;
+        color:  #007bff;
+    }
 
     @media only screen and (max-width: 767px) {
         .chat-app .people-list {
