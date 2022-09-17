@@ -50,6 +50,11 @@
                         <a href="#" class="btn btn-primary edit-profile">
                             <i class="fa fa-pencil-square fa-lg"></i> Edit profile
                         </a>
+                        @if(Auth::user()->role == 1)
+                            <a href="{{ route('admin.index') }}" class="btn btn-primary edit-profile adminPanel">
+                                <i class="fa fa-pencil-square fa-lg"></i> Admin Panel
+                            </a>
+                        @endif
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" href="" class="btn btn-primary logout">

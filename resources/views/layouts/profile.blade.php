@@ -102,13 +102,19 @@
     #user-profile .profile-header .edit-profile {
         margin-top: -6px;
         position: absolute;
-        right: 150px;
+        right: 100px;
         top: 0;
     }
     #user-profile .profile-header .logout {
         margin-top: -6px;
         position: absolute;
         right: 0;
+        top: 0;
+    }
+    #user-profile .profile-header .adminPanel {
+        margin-top: -6px;
+        position: absolute;
+        right: 230px;
         top: 0;
     }
     #user-profile .profile-tabs {
