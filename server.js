@@ -15,6 +15,12 @@ io.on('connection', (socket) => {
 
     socket.on('sendChatToServer', (message) => {
         console.log(message);
+
+        //сообщения видят оба пользователя
+        io.sockets.emit('sendChatToClient', message);
+
+        // сообщения видит только получатель
+        // socket.broadcast.emit('sendChatToClient', message);
     });
 
     socket.on('disconnect', (socket) => {
