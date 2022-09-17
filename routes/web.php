@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 
 Auth::routes();
@@ -11,9 +12,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/home', 'HomeController@index');
 
     Route::group(['namespace' => 'Main'], function() {
-        Route::get('/', 'IndexController', function($id){
+        Route::get('/', 'IndexController')->name('main.index');
+        Route::get('/chat/{id}', 'ChatController', function($id){
             return $id;
-        })->name('main.index');
+        })->name('main.chat');
     });
 
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
@@ -36,5 +38,11 @@ Route::middleware(['auth'])->group(function() {
 
     });
 });
+
+// Route::controller(ChatController::class)->group(function(){
+//     Route::get('/',  'index');
+//     Route::get('/messages', 'messages');
+//     Route::post('/send', 'send');
+// });
 
 

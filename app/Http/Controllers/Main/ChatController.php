@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class IndexController extends Controller {
+class ChatController extends Controller {
 
-    public function __invoke() {
+    public function __invoke($id) {
 
         $template = 'messenger';
         $userAuth = auth::User();
+        $userChat = User::where(['id' => $id])->first();
         $users = User::get();
-       // $userChat = User::where(['id' => $id])->first();
-        return view('main.index', compact('template', "userAuth", 'users'));
+        return view('main.index', compact('template',  'userChat', 'userAuth', 'users'));
     }
 }
