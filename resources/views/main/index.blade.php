@@ -149,9 +149,11 @@
                                     @if(isset($path))
                                     <li class="clearfix">
                                         <div class="message my-message">
-                                            <img src="{{ asset('/storage/' . $path)}}">
-                                            <a href="{{ asset('/storage/' . $path)}}">link to file</a>
-                                           
+                                            @if($fileExtension == 'jpg' || $fileExtension == 'png')
+                                                <img src="{{ asset('/storage/' . $path)}}">
+                                            @else
+                                                <a href="{{ asset('/storage/' . $path)}}">Ссылка на файл</a>
+                                            @endif
                                         </div>
                                     </li>
                                     @endif

@@ -12,6 +12,7 @@ Route::group(['namespace' => 'Main'], function() {
 
 Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
     Route::get('/', 'IndexController')->name('profile.index');
+    Route::post('/uploadAva/{username}', 'UploadAvatarController@index')->name('profile.uploadAva');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
