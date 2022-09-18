@@ -15,12 +15,13 @@ class UploadController extends Controller {
 
         if ($request->has('input__file')) {
             $path = $request->file('input__file')->store('images', 'public');
+            $file = $request->file('input__file')->getClientOriginalExtension();
         }
         else{
             return redirect()->route('main.index')->with('error', 'Файл не выбран!')->withInput();
         }
 
      
-       return view('main.index', compact('template', 'path'));
+       return view('main.index', compact('template', 'path', 'file'));
     }
 }
