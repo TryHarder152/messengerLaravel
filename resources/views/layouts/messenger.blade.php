@@ -320,9 +320,27 @@
         chatInput.addEventListener('keypress', (event) => {
             let enter = 13;
             if(event.charCode === enter) {
-                //let message = this
-                console.log(message);
+                let message = chatInput.value;
+
+                socket.emit('sendChatToServer', message);
+
+                chatInput.value = '';
+
+                return false;
             }
+        });
+
+        socket.on('sendChatToClient', (message) => {
+            let chatUser = document.querySelector('.chat-history > ul');
+
+            chatUser.innerHTML += `
+                <li class="clearfix">
+                    <div class="message-data">
+                        <span class="message-data-time">10:12 AM, Today</span>
+                    </div>
+                    <div class="message my-message">${message}</div>
+                </li>
+            `;
         });
     });
 
