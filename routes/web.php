@@ -11,9 +11,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/home', 'HomeController@index');
 
     Route::group(['namespace' => 'Main'], function() {
-        Route::get('/', 'IndexController', function($id){
+        Route::get('/', 'IndexController', )->name('main.index');
+        Route::get('/chat/{id}','indexController@showChat', function($id){
             return $id;
-        })->name('main.index');
+        });
     });
 
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
