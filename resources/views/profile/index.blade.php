@@ -9,9 +9,12 @@
                     <div class="profile-status">
                         <i class="fa fa-check-circle"></i> Online
                     </div>
-                        @if(isset($path))
+                        
+                        @if(isset($user->avatar))
 
                             <img src="{{ asset('/storage/' .  $user->avatar)}}" class='ava'>
+                            @else
+                            <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png" class='ava'>
                         @endif
                         
                     

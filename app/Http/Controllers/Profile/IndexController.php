@@ -13,6 +13,7 @@ class IndexController extends Controller {
     public function __invoke() {
 
         $template = 'profile';
+       
         
         return view('profile.index', compact('template'));
     }
