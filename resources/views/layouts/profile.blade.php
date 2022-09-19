@@ -636,7 +636,11 @@
         box-shadow: none;
         -webkit-box-shadow: none;
     }
-
+    .ava{
+        display: block;
+        height: 170px;
+        width: 200px;
+    }
 </style>
 
 <script type="text/javascript">

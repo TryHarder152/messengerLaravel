@@ -254,6 +254,7 @@
             overflow-x: auto
         }
     }
+    
 
     @media only screen and (min-width: 768px) and (max-width: 992px) {
         .chat-app .chat-list {
