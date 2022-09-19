@@ -59,4 +59,13 @@ class User extends Authenticatable
     public function messages(){
         return $this->hasMany(Message::class);
     }
+    
+    public function clearAvatars($user_id){
+        $path = 'uploads/avatars/id{$user_id}';
+        if(file_exists( public_path('/$path'))){
+            foreach (glob(public_path('/$path/*')) as $avatar) {
+                unlink($avatar);
+            }
+        }
+    }
 }

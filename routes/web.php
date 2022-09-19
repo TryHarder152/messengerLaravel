@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
 
 
 Auth::routes();
@@ -13,10 +12,12 @@ Route::middleware(['auth'])->group(function() {
 
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController')->name('main.index');
+        Route::post('/file/upload', 'UploadController')->name('main.upload');
     });
 
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
         Route::get('/', 'IndexController')->name('profile.index');
+        Route::post('/uploadAva/{username}', 'IndexController@ava')->name('profile.uploadAva');
     });
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
@@ -34,12 +35,6 @@ Route::middleware(['auth'])->group(function() {
         });
 
     });
-});
-
-Route::controller(ChatController::class)->group(function(){
-    Route::get('/',  'index');
-    Route::get('/messages', 'messages');
-    Route::post('/send', 'send');
 });
 
 

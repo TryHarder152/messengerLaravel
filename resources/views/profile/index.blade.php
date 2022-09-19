@@ -9,7 +9,21 @@
                     <div class="profile-status">
                         <i class="fa fa-check-circle"></i> Online
                     </div>
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="profile-img img-responsive center-block">
+                        @if(isset($path))
+
+                            <img src="{{ asset('/storage/' .  $user->avatar)}}" class='ava'>
+                        @endif
+                        
+                    
+                    <form method="post" action="{{ route('profile.uploadAva', ['username' => Auth::user()->name])}}" enctype="multipart/form-data" class="my-4">
+                        {{ csrf_field() }}  
+                        <p>Загрузить аватарку</p> 
+                        <div class="input__wrapper">
+                            <input type="file"  name="avatar" id="avatar" class="input input__file">
+                            <input type="submit" class="btn btn-success"  value='Загрузить'>
+                            
+                        </div>
+                    </form>
                     <div class="profile-label">
                         <span class="label label-danger">Admin</span>
                     </div>

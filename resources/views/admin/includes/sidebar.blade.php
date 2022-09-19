@@ -7,6 +7,7 @@
             <a href="#!user"><img class="circle" src="{{ asset('assets/admin/img/avatar04.png') }}"></a>
             <a href="#!name"><span class="white-text name">Welcome back,</span></a>
             <a href="#!email"><span class="white-text email">user!</span></a>
+           
         </div>
     </li>
 
@@ -35,4 +36,6 @@
             </li>
         </ul>
     </li>
+    <li><a href="/admin/logout">Logout</a></li>
+    
 </ul>
