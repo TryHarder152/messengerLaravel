@@ -10,19 +10,11 @@ const io = require('socket.io')(server, {
     }
 });
 
-let chatScroll = document.querySelectorAll('.chat-history');
-
 io.on('connection', (socket) => {
     console.log('connection');
 
     socket.on('sendChatToServer', (message) => {
         console.log(message);
-
-        console.log(chatScroll);
-
-        chatScroll.forEach(item => {
-            item.scroll(0, 200000000);
-        });
 
         //сообщения видят оба пользователя
         io.sockets.emit('sendChatToClient', message);
