@@ -5,7 +5,7 @@
         <div class="row" id="user-profile">
             <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="main-box clearfix">
-                    <h2>John Doe </h2>
+                    <h2>{{ $userAuth->name . ' '. $userAuth->last_name}}</h2>
                     <div class="profile-status">
                         <i class="fa fa-check-circle"></i> Online
                     </div>
@@ -70,7 +70,7 @@
                                     First Name
                                 </div>
                                 <div class="profile-user-details-value">
-                                    John
+                                    {{ $userAuth->name}}
                                 </div>
                             </div>
                             <div class="profile-user-details clearfix">
@@ -78,7 +78,7 @@
                                     Last Name
                                 </div>
                                 <div class="profile-user-details-value">
-                                    Doe
+                                   {{ $userAuth->last_name }}
                                 </div>
                             </div>
                             <div class="profile-user-details clearfix">
@@ -95,7 +95,7 @@
                                     Email
                                 </div>
                                 <div class="profile-user-details-value">
-                                    johndoe@bootdey.com
+                                    {{ $userAuth->email }}
                                 </div>
                             </div>
                             <div class="profile-user-details clearfix">
@@ -452,7 +452,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

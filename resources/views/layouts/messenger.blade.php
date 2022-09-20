@@ -40,7 +40,8 @@
 
     .chat-app .chat {
         margin-left: 280px;
-        border-left: 1px solid #eaeaea
+        border-left: 1px solid #eaeaea;
+        height: 80vh;
     }
 
     .people-list {
@@ -107,7 +108,9 @@
 
     .chat .chat-history {
         padding: 20px;
-        border-bottom: 2px solid #fff
+        border-bottom: 2px solid #fff;
+        overflow-y: scroll;
+        height: 61vh;
     }
 
     .chat .chat-history ul {
@@ -225,6 +228,35 @@
         clear: both;
         height: 0
     }
+    .profile{
+        background-color: #007bff;
+        color: #fff;
+    }
+    .profile:hover{
+        background: #fff;
+        color:  #007bff;
+    }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #007bff #efefef;
+    }
+
+    /* для Chrome/Edge/Safari */
+    *::-webkit-scrollbar {
+        height: 12px;
+        width: 12px;
+    }
+    *::-webkit-scrollbar-track {
+        background: #efefef;
+    }
+    *::-webkit-scrollbar-thumb {
+        background-color: #007bff;
+        border-radius: 5px;
+        border: 3px solid #efefef;
+    }
+
+
 
     @media only screen and (max-width: 767px) {
         .chat-app .people-list {
@@ -246,7 +278,7 @@
         }
         .chat-app .chat-history {
             height: 300px;
-            overflow-x: auto
+            overflow-x: auto;
         }
     }
 
@@ -284,6 +316,11 @@
     let usersList = document.querySelectorAll('.user-tab');
     let usersChat = document.querySelectorAll('.user-chat');
     let chats = document.querySelector('.chats');
+    let chatScroll = document.querySelectorAll('.chat-history');
+
+    chatScroll.forEach(item => {
+        item.scroll(0, 200000000);
+    });
 
 
     usersChat.forEach(item => {
@@ -294,13 +331,13 @@
 
     usersList.forEach((item, index) => {
 
-        usersList[0].classList.add('active');
+        // usersList[0].classList.add('active');
 
         item.classList.remove('active');
 
         item.addEventListener('click', function() {
 
-            usersList.forEach(item => item.classList.remove('active'));
+            // usersList.forEach(item => item.classList.remove('active'));
 
             item.classList.add('active');
 
