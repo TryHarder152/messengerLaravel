@@ -14,7 +14,7 @@
                     @if(isset($userAuth->avatar))
                         <img src="{{ asset('/storage/' .  $userAuth->avatar)}}" alt="" class="profile-img img-responsive center-block">
                         @else
-                        <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png">
+                        <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png" class="profile-img img-responsive center-block">
                     @endif
                     <form method="post" action="{{ route('profile.upload')}}" enctype="multipart/form-data" class="my-4">
                         {{ csrf_field() }}

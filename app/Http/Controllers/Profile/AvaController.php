@@ -21,6 +21,7 @@ class AvaController extends Controller {
             $user->save();
         }
         else{
+            
             return redirect()->route('profile.index')->with('error', 'Файл не выбран!')->withInput();
         }
 

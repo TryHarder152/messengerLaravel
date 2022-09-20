@@ -38,7 +38,11 @@
                            <div class="profile">
                                 <ul class="list-unstyled chat-list ">
                                     <li class="clearfix ">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                        @if($userAuth->avatar != null)
+                                            <img src="{{ asset('/storage/' .  $userAuth->avatar)}}" alt="avatar">
+                                        @else
+                                            <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png" alt="avatar">
+                                        @endif
                                         <div class="about">
                                             <h6>Profile</h6>
                                             <div class="name">{{ $userAuth->name}}</div>
@@ -54,7 +58,11 @@
                             @foreach($users as $user)
                             <a href="{{url('/chat', $user->id )}}">
                                 <li class="clearfix user-tab">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                    @if($user->avatar != null)
+                                        <img src="{{ asset('/storage/' .  $user->avatar)}}" alt="avatar">
+                                    @else 
+                                        <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png" alt="avatar">
+                                    @endif
                                     <div class="about">
                                         <div class="name">{{$user->name . " ". $user->last_name}}</div>
                                         <div class="status"> <i class="fa fa-circle online"></i> online </div>
@@ -67,17 +75,21 @@
 
                         </ul>
                     </div>
-                   
+                    @if(isset($userChat))
                         <div class="chats">
                             <div class="chat user-chat">
                                 <div class="chat-header clearfix">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                                @if($userChat->avatar != null)
+                                                    <img src="{{ asset('/storage/' .  $userChat->avatar)}}" alt="avatar">
+                                                @else
+                                                <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png" >
+                                                @endif
                                             </a>
                                             <div class="chat-about">
-                                                <h6 class="m-b-0"></h6>
+                                                <h6 class="m-b-0">{{ $userChat->name}}</h6>
                                                 <small>Last seen: 2 hours ago</small>
                                             </div>
                                         </div>
@@ -130,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+                    @endif
 
                 </div>
             </div>
