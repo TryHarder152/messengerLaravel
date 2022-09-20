@@ -1,6 +1,8 @@
 @extends('layouts/'.$template)
 
 @section('content')
+
+    </div>
     <div class="container bootstrap snippets bootdeys">
         <div class="row" id="user-profile">
             <div class="col-lg-3 col-md-4 col-sm-4">
@@ -9,7 +11,18 @@
                     <div class="profile-status">
                         <i class="fa fa-check-circle"></i> Online
                     </div>
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="profile-img img-responsive center-block">
+                    @if(isset($userAuth->avatar))
+                        <img src="{{ asset('/storage/' .  $userAuth->avatar)}}" alt="" class="profile-img img-responsive center-block">
+                        @else
+                        <img src="https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png">
+                    @endif
+                    <form method="post" action="{{ route('profile.upload')}}" enctype="multipart/form-data" class="my-4">
+                        {{ csrf_field() }}
+                        <div class="input__wrapper">
+                            <input type="file" name="input__file" id="input__file" class="input input__file">
+                            <button type="submit" class="btn btn-primary upload-ava" >загрузить</button>
+                        </div>
+                    </form>
                     <div class="profile-label">
                         <span class="label label-danger">Admin</span>
                     </div>

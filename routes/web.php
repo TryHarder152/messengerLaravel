@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
         Route::get('/', 'IndexController')->name('profile.index');
+        Route::post('/uploadAva', 'AvaController')->name('profile.upload');
     });
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
