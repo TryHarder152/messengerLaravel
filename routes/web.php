@@ -16,6 +16,7 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/chat/{id}','indexController@showChat', function($id){
             return $id;
         });
+        Route::get('/send', 'MailController')->name('main.mail');
     });
 
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function() {
