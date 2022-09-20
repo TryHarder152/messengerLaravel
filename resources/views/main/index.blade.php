@@ -1,6 +1,34 @@
 @extends('layouts/'.$template)
 
 @section('content')
+<!-- Modal -->
+    <div class="modal fade" id="fileUpload" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="fileUpload">Загрузить файл</h5>
+                
+              </div>
+                <form method="post" action="{{ route('main.upload')}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                            
+                        <div class="input__wrapper">
+                            <input type="file" name="input__file" id="input__file" class="input input__file">
+                            
+                        </div>
+                          
+                            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" >Understood</button>
+                    </div>  
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row clearfix">
             <div class="col-lg-12">
@@ -39,7 +67,7 @@
 
                         </ul>
                     </div>
-                    @if(isset($userChat))
+                   
                         <div class="chats">
                             <div class="chat user-chat">
                                 <div class="chat-header clearfix">
@@ -49,20 +77,46 @@
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
                                             </a>
                                             <div class="chat-about">
-                                                <h6 class="m-b-0">{{$userChat->name . "" . $userChat->last_name}}</h6>
+                                                <h6 class="m-b-0"></h6>
                                                 <small>Last seen: 2 hours ago</small>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 hidden-sm text-right">
-                                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+                                            <a href="javascript:void(0);" class="btn " data-bs-toggle="modal" data-bs-target="#fileUpload">
+                                                <i class="fa fa-image"></i>
+                                            </a>
+                                        
+                                            <a href="javascript:void(0);" class="btn" href="#" data-bs-toggle="dropdown">
+                                                <i class="fa fa-cogs"></i>
+                                                <ul class="dropdown-menu">
+                                                    
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="chat-history">
+                                    @if(session('error'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Ошибка!</strong> {{ session('error') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @endif
                                     <ul class="m-b-0">
+                                        @if(isset($path))
+                                            <li class="clearfix">
+                                                <div class="message my-message">
+                                                    @if($file == 'jpg' || $file == 'png')
+                                                        <img src="{{ asset('/storage/' . $path)}}" class="upload-file">
+                                                    @else
+                                                        <a href="{{ asset('/storage/' . $path)}}">Ссылка на файл</a>
+                                                    @endif
+                                                </div>
+                                            </li>
+                                        @endif
                                         {{--messages--}}
                                     </ul>
                                 </div>
@@ -76,7 +130,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    
 
                 </div>
             </div>

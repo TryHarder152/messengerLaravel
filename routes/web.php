@@ -12,6 +12,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController', )->name('main.index');
+        Route::post('/file/upload', 'UploadController')->name('main.upload');
         Route::get('/chat/{id}','indexController@showChat', function($id){
             return $id;
         });
